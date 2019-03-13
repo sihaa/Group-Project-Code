@@ -1,0 +1,14 @@
+
+choice = 0
+
+while (choice != "q"):
+    print ("** Menu ** 'a' to enter a password to check, 'd' to generate a password, or 'q' to quit.")
+    choice = input ("Enter a command: ")
+    if choice == "a":
+        passwd = input ("Enter a password: ")
+        if (len(passwd)) < 8:
+            print ("Invalid Password - password too short.")
+        for characters in (passwd):
+            if ord (characters >97 and < 122):
+                print ("hi")
+            
