@@ -1,14 +1,36 @@
+"""* Class: 44-141 Computer Programming I
+  * Author: Hannah Jahal & Bryce Weber
+  * Description: Mod 4 Group Project
+  * Due: March 
+  * I pledge that I have completed the programming assignment independently.
+  * I have not copied the code from a student or any source.
+  * I have not given my code to any other student and will not share this
+    code with anyone under any circumstances."""
 
 choice = 0
 
 while (choice != "q"):
+    count = 0
+    invalidChars = False
     print ("** Menu ** 'a' to enter a password to check, 'd' to generate a password, or 'q' to quit.")
     choice = input ("Enter a command: ")
     if choice == "a":
         passwd = input ("Enter a password: ")
         if (len(passwd)) < 8:
             print ("Invalid Password - password too short.")
-        for characters in (passwd):
-            if ord (characters >97 and < 122):
-                print ("hi")
+        for character in (passwd):
+            if not (((ord(character) >= 97) and (ord(character) <= 122)) or ((ord(character) >= 65 and (ord(character) <= 90)) or
+                                                                        ((ord(character) >=48 and (ord(character) <=57))))):
+                invalidChars = True
+            if (ord(character) >=48 and (ord(character) <=57)):
+                count +=1
+        if (count <2):
+            print("Invalid Password - not enough digits.")
+        if (invalidChars):
+            print("Invalid Password - incorrect characters.")
+                
+             
+                
+     
+
             
