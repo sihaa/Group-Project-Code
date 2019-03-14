@@ -6,8 +6,10 @@
   * I have not copied the code from a student or any source.
   * I have not given my code to any other student and will not share this
     code with anyone under any circumstances."""
+import random
 
 choice = 0
+genpasswd = 0
 
 while (choice != "q"):
     count = 0
@@ -16,21 +18,44 @@ while (choice != "q"):
     choice = input ("Enter a command: ")
     if choice == "a":
         passwd = input ("Enter a password: ")
-        if (len(passwd)) < 8:
-            print ("Invalid Password - password too short.")
+        #lower 97-122, upper 65-90, digits 48-57
         for character in (passwd):
             if not (((ord(character) >= 97) and (ord(character) <= 122)) or ((ord(character) >= 65 and (ord(character) <= 90)) or
                                                                         ((ord(character) >=48 and (ord(character) <=57))))):
                 invalidChars = True
             if (ord(character) >=48 and (ord(character) <=57)):
                 count +=1
-        if (count <2):
+        if (len(passwd)) < 8:
+            print ("Invalid Password - password too short.")
+        elif (count <2):
             print("Invalid Password - not enough digits.")
-        if (invalidChars):
+        elif (invalidChars):
             print("Invalid Password - incorrect characters.")
+        else:
+            print("Valid Password:", passwd)
+    elif (choice == "q"):
+        break
+    else:
+        print ("Invalid input.")
+    #d
+    if choice == "d":
+        genpasswd = (input ("Enter the length of password to generate: ")) #must enter int / typecast?
+        if len(genpasswd) <8:
+            print ("Password must be at least 8 characters. Please try again.")
+        elif len(genpasswd) >=8:
+            print("hello")
+    
+            """for randNum in genpasswd:
+                randNum =chr(random.randint (97, 122), chr(random.randint (65, 90)), chr(random.randint(48, 57)))
+            print (randNum)"""
                 
-             
-                
-     
-
             
+    
+                
+                
+
+
+
+
+print ("Thank you for using the password machine!")
+    
